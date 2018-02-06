@@ -4,4 +4,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def calc_success(request):
-    return HttpResponse('hello World')
+    return HttpResponse( request.GET.get('content', ''))
