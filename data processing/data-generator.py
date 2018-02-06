@@ -1,11 +1,9 @@
 import collections
 import datetime as dt
 import json
-import settings
-import os
 
-import sys
 from twitterscraper.query import query_tweets
+
 
 class JSONEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -38,14 +36,26 @@ def main():
         file = open("data\\food-data.txt", "w")
         for tweet in query_tweets("food", limit=1000, begindate=dt.date(2016, 1, 1), poolsize=10):
             # print(json.dumps(tweet, cls=JSONEncoder))
-            file.write(json.dumps(tweet, cls=JSONEncoder) + "\n")
+            optimised_data = optimiser(json.dumps(tweet, cls=JSONEncoder), unnecessary_field=['fullname', 'timestamp'])
+            file.write(optimised_data + "\n")
         file.close()
 
         file = open("data\\sport-data.txt", "w")
         for tweet in query_tweets("sport", limit=1000, begindate=dt.date(2016, 1, 1), poolsize=10):
             # print(json.dumps(tweet, cls=JSONEncoder))
-            file.write(json.dumps(tweet, cls=JSONEncoder) + "\n")
+            optimised_data = optimiser(json.dumps(tweet, cls=JSONEncoder), unnecessary_field=['fullname', 'timestamp'])
+            file.write(optimised_data + "\n")
         file.close()
+
+
+def optimiser(data, unnecessary_field=None):
+    # Convert string to dict
+    tweet = json.loads(data)
+    if unnecessary_field is not None:
+        for data in unnecessary_field:
+            tweet.pop(data, None)
+
+    return json.dumps(tweet)
 
 
 main()
