@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include, url
+from Shakespeare.views import calc_success
 
 urlpatterns = [
+    url(r'^calc_success$', calc_success ,name='calc_success'),
     path('admin/', admin.site.urls),
 ]
