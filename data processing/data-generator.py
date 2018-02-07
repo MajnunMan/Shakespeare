@@ -1,4 +1,6 @@
+import codecs
 import collections
+import csv
 import datetime as dt
 import json
 
@@ -33,19 +35,23 @@ def main():
 
     if __name__ == '__main__':
         # Or save the retrieved tweets to file:
-        file = open("data\\food-data.txt", "w")
-        for tweet in query_tweets("food", limit=1000, begindate=dt.date(2016, 1, 1), poolsize=10):
+        dict_list = []
+        for tweet in query_tweets("food", limit=1000, begindate=dt.date(2017, 1, 1), poolsize=100, lang='en'):
             # print(json.dumps(tweet, cls=JSONEncoder))
-            optimised_data = optimiser(json.dumps(tweet, cls=JSONEncoder), unnecessary_field=['fullname', 'timestamp'])
-            file.write(optimised_data + "\n")
-        file.close()
 
-        file = open("data\\sport-data.txt", "w")
-        for tweet in query_tweets("sport", limit=1000, begindate=dt.date(2016, 1, 1), poolsize=10):
-            # print(json.dumps(tweet, cls=JSONEncoder))
+            # Eliminate unnecessary fields from tweet
             optimised_data = optimiser(json.dumps(tweet, cls=JSONEncoder), unnecessary_field=['fullname', 'timestamp'])
-            file.write(optimised_data + "\n")
-        file.close()
+            dict_list.append(optimised_data)
+        dictToCSV("data\\food-data.csv", dict_list[0].keys(), dict_list)
+
+        dict_list.clear()
+        for tweet in query_tweets("sport", limit=1000, begindate=dt.date(2017, 1, 1), poolsize=100, lang='en'):
+            # print(json.dumps(tweet, cls=JSONEncoder))
+
+            # Eliminate unnecessary fields from tweet
+            optimised_data = optimiser(json.dumps(tweet, cls=JSONEncoder), unnecessary_field=['fullname', 'timestamp'])
+            dict_list.append(optimised_data)
+        dictToCSV("data\\sport-data.csv", dict_list[0].keys(), dict_list)
 
 
 def optimiser(data, unnecessary_field=None):
@@ -55,7 +61,16 @@ def optimiser(data, unnecessary_field=None):
         for data in unnecessary_field:
             tweet.pop(data, None)
 
-    return json.dumps(tweet)
+    return tweet
+
+
+def dictToCSV(csv_file, csv_columns, dict_data):
+    with codecs.open(csv_file, 'w', "utf-8") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
+        writer.writeheader()
+        for data in dict_data:
+            writer.writerow(data)
+    return
 
 
 main()
