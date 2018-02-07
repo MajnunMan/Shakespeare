@@ -27,11 +27,6 @@ class JSONEncoder(json.JSONEncoder):
 
 
 def main():
-    # Print out tweets
-    """list_of_tweets = query_tweets("Sport", 10)
-    # print the retrieved tweets to the screen:
-    for tweet in query_tweets("Sport", 10):
-        print(json.dumps(tweet, cls=JSONEncoder))"""
 
     if __name__ == '__main__':
         # Or save the retrieved tweets to file:
