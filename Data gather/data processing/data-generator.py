@@ -1,10 +1,12 @@
 import codecs
 import collections
 import csv
-import datetime as dt
 import json
 import numpy as np
+import pandas as pd
+import datetime as dt
 
+from sklearn import preprocessing
 from twitterscraper.query import query_tweets
 
 
@@ -30,8 +32,11 @@ class JSONEncoder(json.JSONEncoder):
 def main():
 
     if __name__ == '__main__':
-        process('food')
-        process('sport')
+        #process('food')
+        #process('sport')
+
+        scaleRating("food-data.csv")
+        scaleRating("sport-data.csv")
 
 
 def process(category):
@@ -70,6 +75,16 @@ def dictToCSV(csv_file, csv_columns, dict_data):
         writer.writeheader()
         for data in dict_data:
             writer.writerow(data)
+    return
+
+
+def scaleRating(csv):
+
+    data = pd.read_csv(csv)
+    rating_norm = preprocessing.MinMaxScaler().fit_transform(data[['rating']])
+    data['rating_norm'] = rating_norm
+    data.to_csv(csv)
+
     return
 
 
