@@ -27,10 +27,37 @@
 .main-content{
   display: inline-block;
   height: 100%;
-  width: 75%;
+  width: auto;
   position: fixed;
-  margin-left: 20%
+  margin-left: 20%;
+  background-color: #1C8AEB;
+  background: #05abe0; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #05abe0 1%, #53cbf1 50%, #87e0fd 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #05abe0 1%,#53cbf1 50%,#87e0fd 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #05abe0 1%,#53cbf1 50%,#87e0fd 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05abe0', endColorstr='#87e0fd',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+
+article h2 {
+  color: white;
+  padding: 150px 100px 50px 100px;
+}
+
+article p {
+  font-size: 20px;
+  color: white;
+  padding: 0 100px;
+}
+
+article .start-btn {
+  font-size: 20px;
+  color: white;
+  margin-left: 100px;
+  background-color: purple;
+  padding: 10px 40px;
+}
+
+
 /* .main-title
 .main-text
 .start-btn */
