@@ -73,4 +73,34 @@
     <footer></footer>
   </body>
   <script type="text/javascript" src="../js/script.js"> </script>
+
+  <script>
+    $(function()
+    {
+      $("#d-form-js").click(function(){
+    let category = $("#category-js").val();
+    let content = $("#camp-text-js").val();
+    $.ajax({
+       type: "GET",
+       url: "http://127.0.0.1:8000/calc_success",
+       data: {
+         content: content,
+         category: category
+       },
+       //contentType: "application/json; charset=utf-8",
+       dataType: "json",
+       success: function (result) {
+           console.log(result);
+        },
+        error: function(xhr, status, error)
+        {
+          var err = eval("(" + xhr.responseText + ")");
+          alert(error);
+        }
+      });
+    event.preventDefault();
+    //alert("asdsa");
+});
+    });
+  </script>
   </html>
