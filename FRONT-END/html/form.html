@@ -49,7 +49,7 @@
         Lorem Ipsum is simply dummy text of the printing and typesetting industry
         Lorem Ipsum is simply dummy text of the printing and typesetting industry
       </p>
-      
+      <form class="text-left" id="d-form-js">
         <div class="form-group">
           <h2>1. Select your campaigns category</h2>
           <label>Category</label>
@@ -66,42 +66,11 @@
           <label for="camp-text-js">Campaign</label>
           <input type="text" class="form-control" id="camp-text-js" placeholder="Input value">
         </div>
-        <button  id="d-form-js" class="btn btn-default">Submit</button>
-      
+        <a href="./result.html" type="submit" role="button" class="btn btn-default">Submit</a>
+      </form>
 
     </main>
     <footer></footer>
   </body>
   <script type="text/javascript" src="../js/script.js"> </script>
-
-  <script>
-    $(function()
-    {
-      $("#d-form-js").click(function(){
-    let category = $("#category-js").val();
-    let content = $("#camp-text-js").val();
-    $.ajax({
-       type: "GET",
-       url: "http://127.0.0.1:8000/calc_success",
-       data: {
-         content: content,
-         category: category
-       },
-       crossDomain: true,
-       contentType: "application/json; charset=utf-8",
-       dataType: "json",
-       success: function (result) {
-           console.log(result);
-        },
-        error: function(xhr, status, error)
-        {
-          var err = eval("(" + xhr.responseText + ")");
-          alert(error);
-        }
-      });
-    event.preventDefault();
-    //alert("asdsa");
-});
-    });
-  </script>
   </html>
