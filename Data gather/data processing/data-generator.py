@@ -5,6 +5,7 @@ import json
 import numpy as np
 import pandas as pd
 import datetime as dt
+import time
 
 from sklearn import preprocessing
 from twitterscraper.query import query_tweets
@@ -35,14 +36,18 @@ def main():
         #process('food')
         #process('sport')
 
-        scaleRating("food-data.csv")
-        scaleRating("sport-data.csv")
+        #df = pd.read_csv('sport-data-combined.csv', delimiter=',')
+        #data = df.sort_values(by='rating', ascending=False)
+        #data.to_csv('sport-data-combined.csv', encoding='utf-8')
+
+        #scaleRating("food-data-combined.csv")
+        scaleRating("sport-data-combined.csv")
 
 
 def process(category):
     # Save the retrieved tweets to file:
     dict_list = []
-    for tweet in query_tweets(category, limit=1000, begindate=dt.date(2017, 1, 1), poolsize=100, lang='en'):
+    for tweet in query_tweets(category, limit=3000, begindate=dt.date(2016, 1, 1), poolsize=100, lang='en'):
         # print(json.dumps(tweet, cls=JSONEncoder))
 
         # Eliminate unnecessary fields from tweet
@@ -51,7 +56,8 @@ def process(category):
 
     # Sorting tweets by rating (likes + replies + retweets)
     sorted_dict = sorted(dict_list, key=lambda d: d['rating'], reverse=True)
-    dictToCSV(category +"-data.csv", sorted_dict[0].keys(), sorted_dict)
+    timestr = time.strftime("%Y%m%d-%H%M%S")
+    dictToCSV(category +"-data" + timestr + ".csv", sorted_dict[0].keys(), sorted_dict)
 
     return
 
@@ -84,6 +90,9 @@ def scaleRating(csv):
     rating_norm = preprocessing.MinMaxScaler().fit_transform(data[['rating']])
     data['rating_norm'] = rating_norm
     data.to_csv(csv)
+    #X = np.asanyarray(data[['rating']])
+    #print(np.isfinite(X.sum()))
+    #print(np.isfinite(X).all())
 
     return
 
