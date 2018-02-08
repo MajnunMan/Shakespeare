@@ -1,16 +1,52 @@
-.start-page {
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Inconsolata|Raleway:400i|Dancing+Script:700');
+
+/*
+font-family: 'Abril Fatface', cursive;
+font-family: 'Raleway', sans-serif;
+font-family: 'Inconsolata', monospace;
+font-family: 'Dancing Script', cursive;
+*/
+
+html, body, main{
   height: 100%;
-  position: fixed;
+}
+main.start-page{
+  display: table;
+}
+.table-row{
+  height: 100%;
+  display: table-row;
+
 }
 .left-bar{
-  background-color: #131313;
+  display: table-cell;
+  float: none;
   height: 100%;
-  width: 20%;
-  display: inline-block;
-  position: fixed;
+  vertical-align: middle;
+  background-color: transparent;
 }
-/* .shakes */
-.help-btn, .contact-btn {
+.main-content{
+  display: table-cell;
+  float: none;
+  vertical-align: middle;
+  z-index: 2;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+h1.shakes{
+  font-family: 'Abril Fatface', cursive;
+  font-size: 50px;
+}
+h1.pear{
+  font-family: 'Dancing Script', cursive;
+  font-size: 60px;
+  color: #c7c7c5;
+  margin-top: -42px;
+}
+.btn-side a {
   width: 76px;
   height: 23px;
   font-family: IBMPlexMono;
@@ -22,15 +58,123 @@
   letter-spacing: normal;
   text-align: left;
   color: #f2f2f2;
-  bottom: 2px;
+  margin: 0px 5px;
 }
-.main-content{
-  display: inline-block;
-  height: 100%;
-  width: 75%;
+.bar-logo{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+.bar-logo, .layout-logo{
+  top: 5px;
+}
+.btn-side{
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  margin: 5px;
+}
+.btn-side a{
+  font-family: 'Inconsolata', monospace;
+}
+.btn-side a:hover{
+  text-decoration: none;
+  color: gray;
+}
+.centralize{
+  margin: auto;
+  width: 70%;
+
+}
+.main-title{
+  font-family: 'Abril Fatface', cursive;
+  font-size: 48px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.42;
+  letter-spacing: normal;
+  color: #f2f2f2;
+}
+.main-text{
+  font-family: 'Inconsolata', monospace;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
+  margin: 50px 0px;
+}
+.main-text span{
+  background-color: #f2f2f2;
+  box-shadow: 10px 0 0px 0px #f2f2f2, -10px 0 0px 0px #f2f2f2;
+  padding: 5px 0px;
+}
+.start-btn{
+  background-color: #d82763;
+  font-family: 'Inconsolata', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #f2f2f2;
+  padding: 5px 30px;
+  border-radius: 0px;
+}
+.start-btn:hover{
+  background-color: #4027d8;
+  color: white;
+}
+
+#particles-js{
   position: fixed;
-  margin-left: 20%
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  background-color: #201c1c;
 }
-/* .main-title
-.main-text
-.start-btn */
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
