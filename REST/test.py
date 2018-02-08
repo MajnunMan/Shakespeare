@@ -11,6 +11,8 @@ from keras.models import Model
 from keras.layers import Input, Dense, Embedding, SimpleRNN, LSTM, GRU
 from keras.preprocessing.text import text_to_word_sequence
 import csv
+import json
+
 # define documents
 data = []
 labels = []
@@ -46,21 +48,8 @@ encoded_docs2 = t.texts_to_sequences(docs2)
 
 def preprocess_sequences(seq, vocab_size, maxlen):
     out = []
-    ##############################################################################
-    # TODO: Write a function to preprocess sequences:                            #
-    #       - all sequences should have the same length - pad them with 0s at    #
-    #         the beginning (the extra zeros go in the beginning of the list)    #
-    #       - if sequence is too long (above maxlen), then keep only the maxlen  #
-    #         words in end of the review(works better than keeping the beginning)#
-    #       - remove all words with index >= vocab_size, replace them with 2s.   #
-    #         (Words are ordered by frequency, so you are in fact removing less  #
-    #         frequent words.)                                                   #
-    ##############################################################################
     out = [[word for word in rev if word < vocab_size] for rev in seq]
     out = [([0] * (maxlen - len(rev)) + rev )[:maxlen] for rev in out]
-    ##############################################################################
-    #                             END OF YOUR CODE                               #
-    ##############################################################################
     return np.array(out)
 
 vocab_size = 20000
@@ -93,19 +82,26 @@ def words2sequences(words):
 def sentences2sequences(sentences):
     return [[1] + words2sequences(s) for s in sentences]
 
-##############################################################################
-# TODO: Write one positive (> 0.9) and one negative (< 0.1) movie review.    #
-#       Try to write it yourself, do not just copy paste reviews from        #
-#       somewhere until you find one that works.                             #
-##############################################################################
-myreviews = [
-    "Real men don't kill harmless & defenceless animals for 'sport'. RT if you agree #stoptrophyhunting", # fill this with good review
-    "It was the worst movie ever seen. It is just waste of time and money. Dont go with anyone if you dont want to torchure them." # fill this with bad review
-]
-##############################################################################
-#                             END OF YOUR CODE                               #
-##############################################################################
 
-myreviews_seq = t.texts_to_sequences(myreviews)
-X_myreviews = preprocess_sequences(myreviews_seq, vocab_size, maxlen)
-print(ltsm_model.predict(X_myreviews)[0][0])
+from werkzeug.wrappers import Request, Response
+
+@Request.application
+def application(request):
+    print(request)
+    myreviews = [
+        "Real men don't kill harmless & defenceless animals for 'sport'. RT if you agree #stoptrophyhunting", # fill this with good review
+        "It was the worst movie ever seen. It is just waste of time and money. Dont go with anyone if you dont want to torchure them." # fill this with bad review
+    ]
+
+    myreviews_seq = t.texts_to_sequences(myreviews)
+    X_myreviews = preprocess_sequences(myreviews_seq, vocab_size, maxlen)
+    print(ltsm_model.predict(X_myreviews)[0][0])
+    response = Response(json.JSONEncoder().encode({"tweets":myreviews , "score":int(100 * ltsm_model.predict(X_myreviews)[0][0])}))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    return response
+
+if __name__ == '__main__':
+    from werkzeug.serving import run_simple
+    run_simple('localhost', 4000, application)
