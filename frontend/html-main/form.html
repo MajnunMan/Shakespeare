@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <title>Content Marketing</title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/loading.css">
+    <!-- jQuery -->
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+    <main class="start-page">
+      <section class="row table-row">
+        <div class="col-sm-3 left-bar-mulage hidden-xs"></div>
+        <article class="col-sm-3 left-bar hidden-xs">
+          <div class="bar-logo layout-logo">
+            <h1 class="shakes">shakes</h1> <h1 class="pear">peer</h1>
+          </div>
+          <div class="steps">
+            <p id="step1">1.<i class="underline-css"></i> <span class="step-label">Category</span></p>
+            <p id="step2">2.<i class="underline-css"></i> <span class="step-label">Text</span></p>
+            <p id="step3">3.<i class="underline-css"></i> <span class="step-label">Result</span></p>
+          </div>
+          <div class="btn-side">
+            <a href="./form.html">Help</a>
+            <a href="./form.html">Contact</a>
+          </div>
+        </article>
+        <article class="col-sm-9 main-content form">
+          <div class="centralize">
+            <form class="" id="form-js">
+              <div class="form-group category-css-js">
+                <h2 class="form-title"><span>Select your campaign <b>category</b></span></h2>
+                <select id="category-js" class="dropdown-from">
+                  <option value="all">All</option>
+                  <option value="elections">Elections</option>
+                  <option value="sport">Sport</option>
+                  <option value="food">Food</option>
+                  <option value="technology">Technology</option>
+                </select>
+                <button class="start-btn btn" id="continue-to-text-js">Continue..</button>
+              </div>
+              <div class="form-group text-css-js">
+                <h2 class="form-title"><span>Write your campaign <b>text</b></span></h2>
+                <textarea rows="4" cols="50" maxlength="140" class="text-form" id="camp-text-js" placeholder="Enter your text.." disabled></textarea>
+                <button class="start-btn btn" type="submit" id="analyze-js" disabled>Analyze..</button>
+              </div>
+            </form>
+          </div>
+        </article>
+      </section>
+      <section id="loading">
+        <div class="loading-bro">
+          <h1>Loading</h1>
+          <svg id="load" x="0px" y="0px" viewBox="0 0 150 150">
+            <circle id="loading-inner" cx="75" cy="75" r="60"/>
+         </svg>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script type="text/javascript" src="../js/script.js"> </script>
+  <script type="text/javascript" src="../js/form.js"> </script>
+  <script type="text/javascript" src="../js/particles.min.js"></script>
+</html>
