@@ -25,7 +25,7 @@ main.start-page{
   vertical-align: middle;
   position: relative;
   z-index: 2;
-	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background: linear-gradient(-45deg, #ee7752d4, #e73c7e78, #23a6d5db, #23d5abe0);
 	background-size: 400% 400%;
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
