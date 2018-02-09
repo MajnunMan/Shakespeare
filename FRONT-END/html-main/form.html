@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/loading.css">
     <!-- jQuery -->
     <script
       src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -18,90 +19,58 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">SHAKESPEARE</a>
+    <div id="particles-js"></div>
+    <main class="start-page">
+      <section class="row table-row">
+        <div class="col-sm-3 left-bar-mulage hidden-xs"></div>
+        <article class="col-sm-3 left-bar hidden-xs">
+          <div class="bar-logo layout-logo">
+            <h1 class="shakes">shakes</h1> <h1 class="pear">peer</h1>
           </div>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-    </header>
-    <main class="container text-center">
-      <h1>SHAKESPEARE</h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry
-      </p>
-      
-        <div class="form-group">
-          <h2>1. Select your campaigns category</h2>
-          <label>Category</label>
-          <select id="category-js">
-            <option value="default">Something different</option>
-            <option value="food">Food</option>
-            <option value="sport">Sport</option>
-            <option value="education">Education</option>
-            <option value="technology">Technology</option>
-          </select>
+          <div class="steps">
+            <p id="step1">1.<i class="underline-css"></i> <span class="step-label">Category</span></p>
+            <p id="step2">2.<i class="underline-css"></i> <span class="step-label">Text</span></p>
+            <p id="step3">3.<i class="underline-css"></i> <span class="step-label">Result</span></p>
+          </div>
+          <div class="btn-side">
+            <a href="./form.html">Help</a>
+            <a href="./form.html">Contact</a>
+          </div>
+        </article>
+        <article class="col-sm-9 main-content form">
+          <div class="centralize">
+            <form class="" id="form-js">
+              <div class="form-group category-css-js">
+                <h2 class="form-title"><span>Select your campaign <b>category</b></span></h2>
+                <select id="category-js" class="dropdown-from">
+                  <option value="all">All</option>
+                  <option value="food">Food</option>
+                  <option value="sport">Sport</option>
+                  <option value="education">Education</option>
+                  <option value="technology">Technology</option>
+                </select>
+                <button class="start-btn btn" id="continue-to-text-js">Continue..</button>
+              </div>
+              <div class="form-group text-css-js">
+                <h2 class="form-title"><span>Write your campaign <b>text</b></span></h2>
+                <textarea rows="4" cols="50" maxlength="140" class="text-form" id="camp-text-js" placeholder="Enter your text.." disabled></textarea>
+                <button class="start-btn btn" type="submit" id="analyze-js" disabled>Analyze..</button>
+              </div>
+            </form>
+          </div>
+        </article>
+      </section>
+      <section id="loading">
+        <div class="loading-bro">
+          <h1>Loading</h1>
+          <svg id="load" x="0px" y="0px" viewBox="0 0 150 150">
+            <circle id="loading-inner" cx="75" cy="75" r="60"/>
+         </svg>
         </div>
-        <div class="form-group">
-          <h2>2. Enter your campaign text</h2>
-          <label for="camp-text-js">Campaign</label>
-          <input type="text" class="form-control" id="camp-text-js" placeholder="Input value">
-        </div>
-        <button  id="d-form-js" class="btn btn-default">Submit</button>
-      
-
+      </section>
     </main>
-    <footer></footer>
   </body>
   <script type="text/javascript" src="../js/script.js"> </script>
-
-  <script>
-    $(function()
-    {
-      $("#d-form-js").click(function(){
-    let category = $("#category-js").val();
-    let content = $("#camp-text-js").val();
-    $.ajax({
-       type: "GET",
-       url: "http://127.0.0.1:8000/calc_success",
-       data: {
-         content: content,
-         category: category
-       },
-       crossDomain: true,
-       contentType: "application/json; charset=utf-8",
-       dataType: "json",
-       success: function (result) {
-           console.log(result);
-        },
-        error: function(xhr, status, error)
-        {
-          var err = eval("(" + xhr.responseText + ")");
-          alert(error);
-        }
-      });
-    event.preventDefault();
-    //alert("asdsa");
-});
-    });
-  </script>
-  </html>
+  <script type="text/javascript" src="../js/form.js"> </script>
+  <script type="text/javascript" src="../js/particles.min.js"></script>
+</html>

@@ -9,6 +9,7 @@ font-family: 'Dancing Script', cursive;
 
 html, body, main{
   height: 100%;
+  width: 100%;
 }
 main.start-page{
   display: table;
@@ -18,23 +19,37 @@ main.start-page{
   display: table-row;
 
 }
-.left-bar{
-  display: table-cell;
-  float: none;
-  height: 100%;
-  vertical-align: middle;
-  background-color: transparent;
-}
 .main-content{
   display: table-cell;
   float: none;
   vertical-align: middle;
+  position: relative;
   z-index: 2;
-	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background: linear-gradient(-45deg, #ee7752d4, #e73c7e78, #23a6d5db, #23d5abe0);
 	background-size: 400% 400%;
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
+}
+.main-content.form{
+  vertical-align: top;
+}
+.form .form-group{
+  margin: 40px 0px;
+}
+.left-bar-mulage{
+  display: table-cell;
+  position: relative;
+  z-index: -3;
+}
+.left-bar{
+  float: none;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: transparent;
+  position: fixed;
+  z-index: 1;
 }
 h1.shakes{
   font-family: 'Abril Fatface', cursive;
@@ -46,11 +61,34 @@ h1.pear{
   color: #c7c7c5;
   margin-top: -42px;
 }
+.bar-logo{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+.bar-logo.layout-logo{
+  position: relative;
+  top: 5px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+.bar-logo.layout-logo h1.shakes{
+  font-family: 'Abril Fatface', cursive;
+  font-size: 25px;
+}
+.bar-logo.layout-logo h1.pear{
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  color: #c7c7c5;
+  margin-top: -25px;
+}
 .btn-side a {
   width: 76px;
   height: 23px;
-  font-family: IBMPlexMono;
   font-size: 18px;
+  font-family: 'Inconsolata', monospace;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -60,23 +98,11 @@ h1.pear{
   color: #f2f2f2;
   margin: 0px 5px;
 }
-.bar-logo{
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: white;
-}
-.bar-logo, .layout-logo{
-  top: 5px;
-}
 .btn-side{
   position: absolute;
   z-index: 2;
   bottom: 0;
   margin: 5px;
-}
-.btn-side a{
-  font-family: 'Inconsolata', monospace;
 }
 .btn-side a:hover{
   text-decoration: none;
@@ -85,7 +111,6 @@ h1.pear{
 .centralize{
   margin: auto;
   width: 70%;
-
 }
 .main-title{
   font-family: 'Abril Fatface', cursive;
@@ -96,6 +121,16 @@ h1.pear{
   line-height: 0.42;
   letter-spacing: normal;
   color: #f2f2f2;
+}
+.form-title{
+  font-family: 'Inconsolata', monospace;
+  font-size: 20px;
+  margin-left: 10px;
+}
+.form-title span{
+  background-color: #f2f2f2;
+  box-shadow: 10px 0 0px 0px #f2f2f2, -10px 0 0px 0px #f2f2f2;
+  padding: 5px 0px;
 }
 .main-text{
   font-family: 'Inconsolata', monospace;
@@ -131,6 +166,138 @@ h1.pear{
 .start-btn:hover{
   background-color: #4027d8;
   color: white;
+}
+
+.dropdown-from{
+  display: block;
+  margin: 50px 0px;
+  padding: 10px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #f2f2f2;
+  color: white;
+  font-family: 'Inconsolata', monospace;
+}
+textarea.text-form{
+  margin: 50px 0px;
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  font-family: 'Inconsolata', monospace;
+}
+select:focus{
+  border: none;
+  border-bottom: 2px solid #f2f2f2;
+}
+.dropdown-from option{
+  background-color: #f2f2f238;
+  color: gray;
+  padding: 5px 0px;
+}
+.form-group.text-css-js{
+  opacity: .3;
+}
+.steps{
+  position: relative;
+  z-index: 2;
+  color: #f2f2f2;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 45px;
+  text-align: left;
+  margin-top: 60px;
+  display: inline-block;
+}
+.steps p{
+  margin: 20px 0px;
+  z-index: 1;
+}
+.steps span{
+  font-family: 'Inconsolata', monospace;
+  font-size: 30px;
+}
+.steps i.underline-css{
+  width: 40px;
+  height: 11px;
+  background-color: #d82763;
+  position: absolute;
+  z-index: -1;
+  margin: 43px -38px;
+  border-radius: 2px;
+}
+.steps #step2, .steps #step3{
+  opacity: 0.3;
+}
+h2.result-title{
+  font-family: 'Abril Fatface', cursive;
+  font-size: 30px;
+  color: #f2f2f2;
+  margin-top: 70px;
+}
+h2.result-title span{
+  font-size: 40px;
+}
+p.info-on-result{
+  font-family: 'Inconsolata', monospace;
+  color: #dfdfdf;
+  font-size: 15px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin: 35px 0px;
+}
+p.info-on-result i{
+  border-top: .8px solid #dfdfdf;
+  border-right: .8px solid #dfdfdf;
+  height: 45px;
+  width: 15px;
+}
+.tw-body{
+  margin: 30px 0px;
+  font-family: 'Inconsolata', monospace;
+  color: white;
+  font-size: 16px;
+}
+.tw-body .tw-header h4{
+  display: inline-block;
+}
+.tw-body .tw-header span{
+  color: #f2f2f287;
+}
+.tw-popularity{
+  margin-top: 10px;
+  color: #f2f2f287;
+}
+.tw-popularity i, .tw-popularity span{
+  margin: 2px;
+}
+.tw-popularity span{
+  margin-right: 10px;
+}
+.subscribe{
+  margin: 30px 0px;
+}
+.subscribe p{
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+.progress-css span{
+  font-family: 'Abril Fatface', cursive;
+  font-size: 15px;
+  color: #f2f2f2;
+}
+.progress-css span.pr-hundred{
+  position: relative;
+  float: right;
+}
+
+#progress-bar{
+  width: 100%;
+  height: 30px;
+  margin-bottom: 40px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 #particles-js{
