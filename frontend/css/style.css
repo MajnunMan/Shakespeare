@@ -25,7 +25,7 @@ main.start-page{
   vertical-align: middle;
   position: relative;
   z-index: 2;
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab80);
 	background-size: 400% 400%;
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
@@ -118,13 +118,13 @@ h1.pear{
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 0.42;
+  line-height: 1;
   letter-spacing: normal;
   color: #f2f2f2;
 }
 .form-title{
   font-family: 'Inconsolata', monospace;
-  font-size: 20px;
+  font-size: 24px;
   margin-left: 10px;
 }
 .form-title span{
@@ -296,10 +296,13 @@ p.info-on-result i{
   text-align: center;
 }
 .svg-logo-layout{
-  margin: 5px auto;
+  margin: 50px auto;
   display: block;
   text-align: center;
   max-width: 50%;
+}
+audio{
+  display: none;
 }
 #progress-bar{
   width: 100%;
@@ -309,7 +312,16 @@ p.info-on-result i{
   border: none;
   box-shadow: none;
 }
-
+#audio-js-css{
+  display: inline-block;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+  border-radius: 50%;
+  background: #59c6fc;
+  border: none;
+}
 #particles-js{
   position: fixed;
   width: 100%;
