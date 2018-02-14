@@ -35,7 +35,7 @@ main.start-page{
   vertical-align: top;
 }
 .form .form-group{
-  margin: 40px 0px;
+  margin: 10% 0px;
 }
 .left-bar-mulage{
   display: table-cell;
@@ -87,7 +87,7 @@ h1.pear{
 .btn-side a {
   width: 76px;
   height: 23px;
-  font-size: 18px;
+  font-size: 2.5rem;
   font-family: 'Inconsolata', monospace;
   font-weight: normal;
   font-style: normal;
@@ -96,7 +96,7 @@ h1.pear{
   letter-spacing: normal;
   text-align: left;
   color: #f2f2f2;
-  margin: 0px 5px;
+  margin: 0px 1rem;
 }
 .btn-side{
   position: absolute;
@@ -114,7 +114,7 @@ h1.pear{
 }
 .main-title{
   font-family: 'Abril Fatface', cursive;
-  font-size: 48px;
+  font-size: 7rem;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -124,7 +124,7 @@ h1.pear{
 }
 .form-title{
   font-family: 'Inconsolata', monospace;
-  font-size: 24px;
+  font-size: 3.5rem;
   margin-left: 10px;
 }
 .form-title span{
@@ -134,7 +134,7 @@ h1.pear{
 }
 .main-text{
   font-family: 'Inconsolata', monospace;
-  font-size: 18px;
+  font-size: 3.5rem;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -152,7 +152,7 @@ h1.pear{
 .start-btn{
   background-color: #d82763;
   font-family: 'Inconsolata', monospace;
-  font-size: 16px;
+  font-size: 3rem;
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -178,6 +178,7 @@ h1.pear{
   border-bottom: 2px solid #f2f2f2;
   color: white;
   font-family: 'Inconsolata', monospace;
+  font-size: 2rem;
 }
 textarea.text-form{
   margin: 50px 0px;
@@ -186,6 +187,7 @@ textarea.text-form{
   padding: 10px;
   width: 100%;
   font-family: 'Inconsolata', monospace;
+  font-size: 2rem;
 }
 select:focus{
   border: none;
@@ -204,7 +206,7 @@ select:focus{
   z-index: 2;
   color: #f2f2f2;
   font-family: 'Abril Fatface', cursive;
-  font-size: 45px;
+  font-size: 7rem;
   text-align: left;
   margin-top: 60px;
   display: inline-block;
@@ -215,33 +217,35 @@ select:focus{
 }
 .steps span{
   font-family: 'Inconsolata', monospace;
-  font-size: 30px;
+  font-size: 4rem;
 }
 .steps i.underline-css{
-  width: 40px;
-  height: 11px;
-  background-color: #d82763;
-  position: absolute;
-  z-index: -1;
-  margin: 43px -38px;
-  border-radius: 2px;
+    width: 25%;
+    height: 4%;
+    background-color: #d82763;
+    position: absolute;
+    z-index: -1;
+    margin: 31% -25%;
+    border-radius: 2px;
 }
 .steps #step2, .steps #step3{
   opacity: 0.3;
 }
 h2.result-title{
   font-family: 'Abril Fatface', cursive;
-  font-size: 30px;
+  font-size: 5.5rem;
   color: #f2f2f2;
-  margin-top: 70px;
+  margin-top: 14%;
 }
 h2.result-title span{
-  font-size: 40px;
+    font-size: 7rem;
+    position: absolute;
+    margin: -0.5% 2%;
 }
 p.info-on-result{
   font-family: 'Inconsolata', monospace;
   color: #dfdfdf;
-  font-size: 15px;
+  font-size: 2rem;
   margin-left: 0px;
   margin-right: 0px;
   margin: 35px 0px;
@@ -256,13 +260,16 @@ p.info-on-result i{
   margin: 30px 0px;
   font-family: 'Inconsolata', monospace;
   color: white;
-  font-size: 16px;
+  font-size: 2rem;
 }
 .tw-body .tw-header h4{
   display: inline-block;
 }
 .tw-body .tw-header span{
   color: #f2f2f287;
+}
+.tw-name{
+	font-size: 3rem;
 }
 .tw-popularity{
   margin-top: 10px;
@@ -283,7 +290,7 @@ p.info-on-result i{
 }
 .progress-css span{
   font-family: 'Abril Fatface', cursive;
-  font-size: 15px;
+  font-size: 2rem;
   color: #f2f2f2;
 }
 .progress-css span.pr-hundred{

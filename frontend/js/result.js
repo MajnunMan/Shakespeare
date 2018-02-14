@@ -1,5 +1,5 @@
 var json = JSON.parse(localStorage.getItem("content"));
-
+console.log(json)
 // testing
 /*json = {
   data: {
@@ -127,6 +127,16 @@ json.result.score = JSON.parse(localStorage.getItem("content")).result.score*/
 debugger
 console.log(json)
 
+function addImgs(obj){
+	let i = 0;
+	obj.result.tweets = obj.result.tweets.map(function(tweet){
+		i++;
+		tweet.image = "../public/img"+i+".jpg";
+		return (tweet);	
+	})
+	return obj;
+}
+
 function calc_passed(date1){
 	
 	var date2 = new Date();
@@ -169,12 +179,13 @@ $( document ).ready(function() {
   $("#final-score-js").html(json.result.score);
   $("#tw-text-js").html(json.data.text);
   $("#tw-hashtags-js").html("#"+json.data.category);
-
+	json = addImgs(json);
+	console.log(json);
   // other tweete
   json.result.tweets.forEach(function(tweet){
     $( "#simmilar-tweets-js" ).append(
       '<div class="tw-body row">'+
-        '<img src="../public/egg.jpg'+ /*tweet.image*/"" +'" alt="default user picture" class="img-circle col-xs-2">' +
+        '<img src="'+ tweet.image +'" alt="default user picture" class="img-circle col-xs-2">' +
         '<div class="col-xs-10 tw-content">' +
           '<div class="tw-header row">' +
             '<h4 class="tw-name">'+ tweet.name +'</h4> <span class="tw-username">'+ tweet.username +'</span> <span>&#183;</span> <span class="tw-date-time">'+ calc_passed(new Date(tweet.dateTime)) +'</span>' +
